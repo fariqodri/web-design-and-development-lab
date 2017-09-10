@@ -34,23 +34,23 @@ class Lab2UnitTest(TestCase):
 
 class Lab2AddonUnitTest(TestCase):
 
-    @skip('Move this test case to lab_2_addon apps')
+
     def test_lab_2_addon_url_is_exist(self):
         response = Client().get('/lab-2-addon/')
         self.assertEqual(response.status_code, 200)
 
-    @skip('Move this test case to lab_2_addon apps')
+
     def test_root_url_now_is_using_index_page_from_lab_2(self):
         response = Client().get('/')
         self.assertEqual(response.status_code, 301)
         self.assertRedirects(response,'/lab-2/',301,200)
 
-    @skip('Move this test case to lab_2_addon apps')
+
     def test_lab2_addon_using_index_func(self):
         found = resolve('/lab-2-addon/')
         self.assertEqual(found.func, index)
 
-    @skip('Move this test case to lab_2_addon apps')
+
     def test_lab2_addon_bio_dict(self):
         # Check whether bio_dict is not None Object
         self.assertIsNotNone(bio_dict)
@@ -67,7 +67,7 @@ class Lab2AddonUnitTest(TestCase):
             # Name cannot be integer
             self.assertIsNot(type(bio['value']), type(8))
 
-    @skip('Move this test case to lab_2_addon apps')
+    
     def test_lab2_addon_bio_shown_in_page(self):
         request = HttpRequest()
         response = index(request)
