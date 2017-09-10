@@ -1,8 +1,7 @@
 from django.test import TestCase
 from django.test import Client
 from django.urls import resolve
-from .views import bio_dict
-from .views import index
+from .views import bio_dict, index
 from django.http import HttpRequest
 from unittest import skip
 
