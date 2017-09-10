@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.test import Client
 from django.urls import resolve
 from lab_2.views import index, landing_page_content, mhs_name
+from .views import bio_dict
 from django.http import HttpRequest
 from unittest import skip
 
