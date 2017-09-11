@@ -1,5 +1,4 @@
 from django.shortcuts import render
-<<<<<<< HEAD
 from datetime import datetime, date
 # Enter your name here
 mhs_name = 'Fari Qodri Andana' # TODO Implement this
