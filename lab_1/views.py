@@ -1,4 +1,5 @@
 from django.shortcuts import render
+<<<<<<< HEAD
 from datetime import datetime, date
 # Enter your name here
 mhs_name = 'Fari Qodri Andana' # TODO Implement this
@@ -8,3 +9,6 @@ birth_date = date(1999, 9, 21) #TODO Implement this, format (Year, Month, Date)
 def index(request):
     response = {'name': mhs_name, 'age': calculate_age(birth_date.year)}
     return render(request, 'index_lab1.html', response)
+
+def calculate_age(birth_year):
+    return curr_year - birth_year if birth_year <= curr_year else 0
