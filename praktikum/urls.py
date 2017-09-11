@@ -19,13 +19,12 @@ import lab_1.urls as lab_1
 import lab_2.urls as lab_2
 import lab_2_addon.urls as lab_2_addon
 from django.views.generic.base import RedirectView
-from lab_1.views import index as index_lab1
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^lab-1/', include(lab_1,namespace='lab-1')),
     url(r'^lab-2/', include(lab_2,namespace='lab-2')),
-	url(r'^lab-2-addon/', include(lab_2_addon, namespace='lab-2-addon')),
-	url(r'^$', RedirectView.as_view(url='/lab-2/', permanent = 'true'),name='index'),
+    url(r'^lab-2-addon/', include(lab_2_addon,namespace='lab-2-addon')),
+    url(r'^$', RedirectView.as_view(url='lab-2/', permanent = 'true'), name='index')
 ]

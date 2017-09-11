@@ -4,5 +4,5 @@ from .views import index
 #url for app, add your URL Configuration
 
 urlpatterns = [
-	url(r'^$', index, name='index'),
+    url(r'^$', index, name='index'),
 ]
