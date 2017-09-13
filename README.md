@@ -1,3 +1,6 @@
+[![pipeline status](https://gitlab.com/fariqodri/LabPertama/badges/master/pipeline.svg)](https://gitlab.com/fariqodri/LabPertama/commits/master)
+[![coverage report](https://gitlab.com/fariqodri/LabPertama/badges/master/coverage.svg)](https://gitlab.com/fariqodri/LabPertama/commits/master)
+
 # Tutorials and Assignment Repository
 
 CSGE602022 - Web Design & Programming (Perancangan & Pemrograman Web) @
