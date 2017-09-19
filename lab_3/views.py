@@ -8,7 +8,7 @@ import json
 diary_dict = {}
 def index(request):
 	diary_dict = Diary.objects.all().values()
-	return render(request, 'to_do_list.html', {'diary_dict' : diary_dict})
+	return render(request, 'to_do_list.html', {'diary_dict' : convert_queryset_into_json(diary_dict)})
 
 def add_activity(request):
 	if request.method == 'POST':
