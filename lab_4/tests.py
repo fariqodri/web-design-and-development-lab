@@ -78,6 +78,17 @@ class Lab4UnitTest(TestCase):
 	def test_lab_4_table_using_message_table_func(self):
 		found = resolve('/lab-4/result_table')
 		self.assertEqual(found.func, message_table)
+		
+	def test_root_url_now_is_using_index_page_from_lab_4(self):
+		response = Client().get('/')
+		self.assertEqual(response.status_code, 301)
+		self.assertRedirects(response,'/lab-4/',301,200)
+	
+	def test_lab_4_models_to_string(self):
+		message_dummy = "Asupan Spongebob Untuk Seluruh Remaja, Orang Tua, dan Guru"
+		data_dummy = {'name': '', 'email': '', 'message': message_dummy}
+		dummy_form = Message_Form(data_dummy)
+		self.assertIn(message_dummy, dummy_form.__str__())
 
 	def test_lab_4_showing_all_messages(self):
 		name_budi = 'Budi'
