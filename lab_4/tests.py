@@ -84,11 +84,9 @@ class Lab4UnitTest(TestCase):
 		self.assertEqual(response.status_code, 301)
 		self.assertRedirects(response,'/lab-4/',301,200)
 	
-	def test_lab_4_models_to_string(self):
-		message_dummy = "Asupan Spongebob Untuk Seluruh Remaja, Orang Tua, dan Guru"
-		data_dummy = {'name': '', 'email': '', 'message': message_dummy}
-		dummy_form = Message_Form(data_dummy)
-		self.assertIn(message_dummy, dummy_form.__str__())
+	def test_lab_4_string_in_models(self):
+		aktivitas = Message.objects.create(name = mhs_name, email = 'test@gmail.com', message = 'Ini adalah sebuah test')
+		self.assertEqual(str(aktivitas), 'Ini adalah sebuah test')
 
 	def test_lab_4_showing_all_messages(self):
 		name_budi = 'Budi'
