@@ -6,7 +6,7 @@ from .models import Todo
 # Create your views here.
 response = {}
 def index(request):    
-	response['author'] = "" #TODO Implement yourname
+	response['author'] = "Fari Qodri Andana" #TODO Implement yourname
 	todo = Todo.objects.all()
 	response['todo'] = todo
 	html = 'lab_5/lab_5.html'
@@ -23,3 +23,8 @@ def add_todo(request):
 		return HttpResponseRedirect('/lab-5/')
 	else:
 		return HttpResponseRedirect('/lab-5/')
+
+def delete(request, id):
+    instance = Todo.objects.get(id=id)
+    instance.delete()
+    return HttpResponseRedirect('/lab-5/')
