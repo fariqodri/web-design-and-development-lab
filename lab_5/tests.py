@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.test import Client
 from django.urls import resolve
-from .views import index, add_todo
+from .views import index, add_todo, delete
 from .models import Todo
 from .forms import Todo_Form
 from selenium import webdriver
@@ -12,7 +12,13 @@ class Lab5FunctionalTest(TestCase):
 
     def setUp(self):
         chrome_options = Options()
-        self.selenium  = webdriver.Chrome('./chromedriver', chrome_options=chrome_options)
+        chrome_options.add_argument('--dns-prefetch-disable')
+        chrome_options.add_argument('--no-sandbox')
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('disable-gpu')
+        self.selenium = webdriver.Chrome(
+            './chromedriver', chrome_options=chrome_options)
+
         super(Lab5FunctionalTest, self).setUp()
 
     def tearDown(self):
