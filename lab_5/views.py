@@ -23,8 +23,3 @@ def add_todo(request):
 		return HttpResponseRedirect('/lab-5/')
 	else:
 		return HttpResponseRedirect('/lab-5/')
-
-def delete(request, id):
-    instance = Todo.objects.get(id=id)
-    instance.delete()
-    return HttpResponseRedirect('/lab-5/')

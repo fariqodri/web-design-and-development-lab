@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.test import Client
 from django.urls import resolve
-from .views import index, add_todo, delete
+from .views import index, add_todo
 from .models import Todo
 from .forms import Todo_Form
 from selenium import webdriver
@@ -93,10 +93,3 @@ class Lab5UnitTest(TestCase):
 		response= Client().get('/lab-5/')
 		html_response = response.content.decode('utf8')
 		self.assertNotIn(test, html_response)
-	
-	def test_delete(self):
-		new_activity = Todo.objects.create(
-		title='mengerjakan lab ppw', description='mengerjakan lab_5 ppw')
-		delete(self, new_activity.id)
-		counting_all_available_todo = Todo.objects.all().count()
-		self.assertEqual(counting_all_available_todo, 0)

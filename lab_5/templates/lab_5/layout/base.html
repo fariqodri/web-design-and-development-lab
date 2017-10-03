@@ -39,24 +39,19 @@
     <script type="application/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="application/javascript">
       $(function() {
-        $('a[href*="#"]:not([href="#"])').click(function() {
+          $('a[href*="#"]:not([href="#"])').click(function() {
             if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-            if (target.length) {
+              var target = $(this.hash);
+              target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+              if (target.length) {
                 $('html, body').animate({
-                    scrollTop: target.offset().top - 55
-         }, 1000);
-         return false;
-       }
-     }
-   });
- });
-
-        $(".to-do-list-delete-button").on("click", function(e) {
-        var uid = $(this).data('id');
-        location.href="delete/" + uid;
-});
+                  scrollTop: target.offset().top - 55
+                }, 1000);
+                return false;
+              }
+            }
+          });
+        });
     </script>
 </body>
 </html>
