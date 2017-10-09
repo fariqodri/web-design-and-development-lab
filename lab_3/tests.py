@@ -1,6 +1,6 @@
 from django.test import TestCase, Client
 from django.urls import resolve
-from .views import index, add_activity
+from .views import index, add_friend
 from .models import Diary
 from django.utils import timezone
 
