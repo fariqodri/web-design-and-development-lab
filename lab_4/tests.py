@@ -56,8 +56,6 @@ class Lab4UnitTest(TestCase):
 		html_response = response.content.decode('utf8')
 		self.assertIn(anonymous,html_response)
 		self.assertIn(message,html_response)
-		for item in about_me:
-			self.assertIn(item,html_response)
 
 	def test_model_can_create_new_message(self):
 		#Creating a new activity
