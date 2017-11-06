@@ -1,22 +1,36 @@
 {% extends "lab_4/layout/base.html" %}
 
 {% block content %}
-<h1>Portofolio</h1>
+<body style = "background-color: mediumspringgreen">
+<h1 style = "text-align: center; color: maroon;">Fari Qodri Andana</h1>
 <hr/>
-<section name="bio">
-    <h2>Bio</h2>
-    <p>
-        {{content}}
-    </p>
+<img src="https://scontent-iad3-1.cdninstagram.com/t51.2885-15/e35/21819736_481161045598762_1431615563007787008_n.jpg" alt = "my image" style= 
+"border-radius: 50%; width: 200px; height: 200px;display: block;margin: 0 auto" />
+<section name="bio" style = "color: black">
+	<div style="float: left;width: 35%;">
+		<font face = "Comic Sans MS" size = "6">Bio</font>
+		<p>
+			{{content}}
+		</p>
+	</div>
+	<div style= "float	: right; width: 35%;">
+		<font face = "Comic Sans MS" size = "6">Who I am</font>
+		<ul>
+			{% for ii in about_me %}
+			<li> {{ ii }} </li>
+			{% endfor %}
+		</ul>
 </section>
-<hr/>
-<section name="about_me">
-    <h2>List</h2>
-    <ul>
-        {% for ii in about_me %}
-        <li> {{ ii }} </li>
-        {% endfor %}
-    </ul>
+<hr style = "clear: both;">
+<section name="form" style= "color: black">
+    <h2 style = "color: black;">Send Me a Message</h2>
+    <form id="form" method="POST" action="{% url 'lab-4:add_message' %}">
+        {% csrf_token %}
+        {{ message_form }}
+        <br>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
 </section>
-<hr/>
+
 {% endblock %}
+
