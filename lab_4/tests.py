@@ -7,10 +7,7 @@ from lab_1.views import mhs_name
 from .models import Message
 from .forms import Message_Form
 from .views import index, message_post
-<<<<<<< HEAD
-=======
 from .views import index, message_table, about_me, landing_page_content
->>>>>>> db51b323b861f141bcde36ffbb8f8792ba697b2b
 
 # Create your tests here.
 
@@ -35,7 +32,6 @@ class Lab4UnitTest(TestCase):
 		self.assertIn(landing_page_content, html_response)
 
         #Chceking whether all About Me Item is rendered
-<<<<<<< HEAD
         for item in about_me:
             self.assertIn(item,html_response)
 
@@ -74,7 +70,6 @@ class Lab4UnitTest(TestCase):
         html_response = response.content.decode('utf8')
         self.assertIn(anonymous,html_response)
         self.assertIn(message,html_response)
-=======
 		for item in about_me:
 			self.assertIn(item,html_response)
 
@@ -152,4 +147,3 @@ class Lab4UnitTest(TestCase):
 
 		self.assertIn('Anonymous', html_response)
 		self.assertIn(message_anonymous, html_response)
->>>>>>> db51b323b861f141bcde36ffbb8f8792ba697b2b
