@@ -103,7 +103,7 @@ $(document).ready(function(){
 		var apply = picked.split(",");
 		document.body.style.backgroundColor = apply[1];
 		document.getElementById('texthead').style.color = apply[2];
-		localStorage.setItem("selectedTheme", $('.my-select').val());
+		localStorage.setItem("selectedItem", $('.my-select').val());
 		return false;
 	});
 });
