@@ -6,24 +6,35 @@
       <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
       <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
     </head>
+	
+	<h1 id="texthead" style="text-align: center; color: white;"> Fari Qodri Andana </h1> 
+	<section class="theme-selector">
+		<div class="container">
+		   <div class="theme-container">
+			  <p id="title">Theme :</p>
+			  <select class="my-select"></select>
+			  <button class="apply-button btn btn-default">Apply</button>
+		   </div>
+		</div>
+	</section>
 
-    <section name="Chatbox">
-      <select class="my-select"></select>
-       <div class="wrapper">
-          <div class="chat-box">
-             <div class="chat-head">
-                <h2>Chat</h2>
-                <img src="https://maxcdn.icons8.com/windows10/PNG/16/Arrows/angle_down-16.png" title="Expand Arrow" width="16">
-             </div>
-             <div class="chat-body">
-                <div class="msg-insert">
-                </div>
-                <div class="chat-text">
-                   <textarea placeholder="Press Enter"></textarea>
-                </div>
-             </div>
-          </div>
-       </div>
-       <button class="apply-button">apply</button>
-    </section>
+	
+   <section name="Chatbox" class = "navbar-fixed-bottom">
+   <div class="wrapper">
+      <div class="chat-box">
+         <div class="chat-head">
+            <h2>Chat</h2>
+            <img src="https://maxcdn.icons8.com/windows10/PNG/16/Arrows/angle_down-16.png" title="Expand Arrow" width="16" id="arrow">
+         </div>
+         <div class="chat-body">
+            <div class="msg-insert">
+            </div>
+            <div class="chat-text">
+               <textarea id="text" placeholder="Press Enter"></textarea>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+
     {% endblock %}
