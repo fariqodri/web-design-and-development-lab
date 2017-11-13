@@ -1,0 +1,58 @@
+{% extends "lab_7/layout/base.html" %}
+
+{% block content %}
+    <section name="friend-list" id="friend-list">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-lg-8">
+                    <h2> friend Fasilkom</h2>
+                    <div id="friend-list" class="list-group">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block javascript %}
+    <script>
+        $( document ).ready(function () {
+            $.ajax({
+                method: "GET",
+                url: "{% url 'lab-7:get-friend-list' %}",
+                success: function (friend_list) {
+                    console.log(friend_list);
+                    var list = JSON.parse(friend_list);
+                    if(list.length == 0) {
+                        var html = '<div class "alert alert-danger text-center"><strong>Oops!</strong> Tidak ada teman</div>'
+                        $("#friend-list").append(html)
+                    }
+                    else {
+                        $.each(list, function(index, friend) {
+                            var button = '<span class="pull-right">'+
+                                            '<button type="button" class="btn btn-xs btn-danger"'+
+                                            'onClick="deleteFriend('+friend.pk+')">'+
+                                                '&times;'+
+                                            '</button>'+
+                                         '</span>';
+                            var detail = '<span class="col-xs-4 col-md-2 pull-right">'+
+                                            '<button type="button" class="btn btn-xs btn-default btn-block"'+
+                                            'onClick="description('+friend.pk+')">'+
+                                                'detail'+
+                                            '</button>'+
+                                         '</span>';
+                            var html = '<a class="list-group-item clearfix">'+
+                                        friend.fields.friend_name +
+                                        ' (' + friend.fields.npm + ')' + button + detail + '</a>';
+                            $("#friend-list").append(html)
+                        });
+
+                    }
+                },
+                error: function(error){
+                    #tampilkan pesan error
+                }
+            });
+        });
+    </script>
+{% endblock %}
