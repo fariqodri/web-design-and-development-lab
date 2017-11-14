@@ -45,6 +45,10 @@
                             {% endif %}
                         </ul>
                     {% endif %}
+                    {% if auth %}
+                        <div id="token" hidden="true">{{ auth.access_token }}</div>
+                        <div id="client_id" hidden="true">{{ auth.client_id }}</div>
+                    {% endif %}
 
                 </div>
             </div>
@@ -79,10 +83,12 @@
 
 {% block javascript %}
 <script>
+    var token = document.getElementById("token").innerHTML;
+    var cid = document.getElementById("cid").innerHTML;
     var addFriend = function(nama, npm, alamat, ttl, prodi) {
         $.ajax({
             method: "POST",
-            url: '{% url "lab-7:add-friend" %}',
+            url: '/lab-7/add-friend/',
             data: { name: nama, npm: npm, alamat: alamat, ttl: ttl, prodi: prodi},
             success : function (friend) {
                 html = '<a class="list-group-item clearfix">' +
@@ -117,13 +123,12 @@
         event.preventDefault();
     });
 
-
     $("#field_npm").change(function () {
         console.log( $(this).val() );
         npm = $(this).val();
         $.ajax({
             method: "POST",
-            url: '{% url "lab-7:validate-npm" %}',
+            url: '/lab-7/validate-npm/',
             data: {
                 'npm': npm
             },
