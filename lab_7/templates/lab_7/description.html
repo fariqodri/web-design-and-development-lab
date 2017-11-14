@@ -1,0 +1,34 @@
+{% extends "lab_7/layout/base.html" %}
+
+{% block content %}
+<section name="friend-list" class="friend-list">
+    <div class="container">
+        <div class="row">
+        	<div class="col-md-8 col-lg-12">
+        		<h2>{{ friend.friend_name }} </h2>
+        	</div>
+            <div class="col-md-8 col-lg-12">
+                <table width="100%">
+	                <tr>
+	                	<td><h4>NPM</h4></td>
+	                	<td><h4>{{ friend.npm }}</h4></td>
+	                </tr>
+	                <tr>
+	                	<td><h4>Prodi</h4></td>
+	                	<td><h4>{{ friend.prodi }}</h4></td>
+	                </tr>
+	                <tr>
+	                	<td><h4>TTL</h4>
+	                	<td><h4>{{ friend.ttl }}</h4></td>
+	                </tr>
+	                <tr>
+	                	<td><h4>Alamat</h4></td>
+	                	<td><h4 id="address">{{ friend.alamat }}</h4></td>
+            		</tr>
+            	</table>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+<script>

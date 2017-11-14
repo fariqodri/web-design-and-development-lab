@@ -48,11 +48,16 @@
                         });
 
                     }
-                },
-                error: function(error){
-                    #tampilkan pesan error
                 }
             });
         });
+
+         const deleteFriend = function(id) {
+           window.open('delete-friend/'+id+'/', '_self');
+        }
+
+        const description = function(id) {
+            window.open('description/'+id+'/', '_self');
+        }
     </script>
 {% endblock %}
