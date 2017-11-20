@@ -1,0 +1,124 @@
+body {
+	background: #e9ebee;
+}
+.cover {
+	left: 150px;
+	top: 60px;
+	height: 360px;
+	width: 851px;
+	position: absolute;
+	background: white;
+	-webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+}
+.cover img {
+    width: 100%;
+    height: 315px;
+}
+#cover-img {
+	clip: rect(0px, 0px, 500px, 0px);
+}
+.picture {
+	background: white;
+	width: 178px;
+	height: 178px;
+	padding: 5px;
+	top: 220px;
+	left: 160px;
+	position: absolute;
+	border-radius: 2px/2px;
+	-webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+}
+.name{
+	left: 350px;
+	font-size: 24px;
+	font-weight: bold;
+	font-family: 'Helvetica';
+	color: white;
+	top: 300px;
+	height: 50px;
+	width: 200px;
+	position: absolute;
+}
+
+.about {
+    left: 150px;
+	top: 450px;
+	min-height: 225px;
+	width: 320px;
+	background: white;
+	position: absolute;
+	font-family: 'Helvetica';
+	-webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+}
+.about div {
+	padding: 10px 20px 5px 25px;
+}
+.about div img {
+	position: relative;
+}
+.about div div {
+	word-wrap: break-word;
+	margin-left: 5px;
+}
+#logout-btn {
+	left: 925px;
+	top: 380px;
+	position: absolute;
+	z-index: 1;
+}
+#login-btn {
+	position:absolute;
+	top:50%;
+	left:50%;
+	padding:15px;
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+}
+.well {
+	left: 500px;
+	top: 450px;
+	height: 170px;
+	width: 500px;
+	background: white;
+	position: absolute;
+	font-family: 'Helvetica';
+}
+.well textarea {
+	resize: none;
+}
+
+.status {
+	left: 500px;
+	top: 620px;
+	height: 170px;
+	width: 500px;
+	position: absolute;
+}
+.list-status {
+	min-height: 170px;
+	width: 500px;
+	margin: 20px auto;
+	padding: 20px 30px;
+	background: white;
+	word-wrap: break-word;
+	font-family: 'Helvetica';
+	font-size: 18px; 
+	-webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+}
+.mini-photo {
+	margin-bottom: 14px;
+}
+
+#user-name {
+	margin-left: 10px;
+	font-size: 24px;
+}
+.img-circle {
+	border-radius: 50%;
+}
+.status-date{
+	margin-top: 14px;
+	color: grey;
+	font-size: 14px;
+}
