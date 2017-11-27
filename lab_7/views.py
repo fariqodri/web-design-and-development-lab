@@ -11,7 +11,7 @@ import json
 response = {}
 csui_helper = CSUIhelper()
 
-def index(request):
+def index(request): # pragma: no cover
 	# Page halaman menampilkan list mahasiswa yang ada
 	# TODO berikan akses token dari backend dengan menggunakaan helper yang ada
 	mahasiswa_list = csui_helper.instance.get_mahasiswa_list()
@@ -27,20 +27,20 @@ def index(request):
 	html = 'lab_7/lab_7.html'
 	return render(request, html, response)
 
-def friend_list(request):
+def friend_list(request): # pragma: no cover
 	friend_list = Friend.objects.all()
 	response['friend_list'] = friend_list
 	html = 'lab_7/daftar_teman.html'
 	return render(request, html, response)
 
-def get_friend_list(request):
+def get_friend_list(request): # pragma: no cover
 	if (request.method == 'GET'):
 		friend_list = Friend.objects.all()
 		data = serializers.serialize('json', friend_list)
 		return HttpResponse(data)
 
 @csrf_exempt
-def add_friend(request):
+def add_friend(request): # pragma: no cover
 	if request.method == 'POST':
 		name = request.POST['name']
 		npm = request.POST['npm']
@@ -54,7 +54,7 @@ def add_friend(request):
 		data = model_to_dict(friend)
 		return HttpResponse(data)
 
-def paginate_page(page, data_list):
+def paginate_page(page, data_list): # pragma: no cover
 	paginator = Paginator(data_list, 10)
 
 	try:
@@ -77,25 +77,25 @@ def paginate_page(page, data_list):
 	paginate_data = {'data':data, 'page_range':page_range}
 	return paginate_data
 
-def delete_friend(request, friend_id):
+def delete_friend(request, friend_id): # pragma: no cover
 	Friend.objects.filter(id=friend_id).delete()
 	return HttpResponseRedirect('/lab-7/friend-list')
 
 @csrf_exempt
-def validate_npm(request):
+def validate_npm(request): # pragma: no cover
 	npm = request.POST.get('npm', None)
 	data = {
 		'is_taken': Friend.objects.filter(npm__iexact = npm).exists()	#lakukan pengecekan apakah Friend dgn npm tsb sudah ada
 	}
 	return JsonResponse(data)
 
-def friend_description(request, friend_id):
+def friend_description(request, friend_id): # pragma: no cover
 	friend = Friend.objects.filter(id=friend_id)[0]
-	response['friend'] = friend;
+	response['friend'] = friend
 	html = 'lab_7/description.html'
 	return render(request, html, response)
 
-def model_to_dict(obj):
+def model_to_dict(obj): # pragma: no cover
 	data = serializers.serialize('json', [obj,])
 	struct = json.loads(data)
 	data = json.dumps(struct[0]["fields"])

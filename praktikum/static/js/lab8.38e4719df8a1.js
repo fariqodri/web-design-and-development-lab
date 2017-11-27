@@ -116,7 +116,7 @@ const render = loginFlag => {
     });
   } else {
     // Tampilan ketika belum login
-    $('#lab8').html('<button class="login" onclick="facebookLogin()">Login with Facebook</button>');
+    $('#lab8').html('<button class="login" onclick="facebookLogin()">Login</button>');
   }
 };
 
@@ -133,7 +133,7 @@ const facebookLogin = () => {
       console.log(response);
       render(false);
     }
-}, {scope: 'public_profile,user_posts,publish_actions,user_about_me,email'}, {auth_type: 'reauthenticate'});
+}, {scope: 'public_profile,user_posts,publish_actions,user_about_me,email'});
 };
 
 const facebookLogout = () => {
@@ -193,7 +193,6 @@ const postFeed = (message) => {
     if(response.status === 'connected') {
       console.log(response);
       FB.api("/me/feed", 'post', {message: message});
-      render(false);
       render(true);
     }
   }, {scope: 'publish_actions'});

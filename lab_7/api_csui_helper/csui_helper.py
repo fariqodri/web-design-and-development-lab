@@ -32,10 +32,10 @@ class CSUIhelper:
 			except Exception:
 				raise Exception("username atau password sso salah, input : [{}, {}] {}".format(username, password, os.environ.items()))
 
-		def get_client_id(self):
+		def get_client_id(self): # pragma: no cover
 			return self.client_id
 
-		def get_auth_param_dict(self):
+		def get_auth_param_dict(self): # pragma: no cover
 			dict = {}
 			access_token = self.access_token
 			client_id = self.client_id
@@ -44,7 +44,7 @@ class CSUIhelper:
 
 			return dict
 
-		def get_mahasiswa_list(self):
+		def get_mahasiswa_list(self): # pragma: no cover
 			response = requests.get(API_MAHASISWA_LIST_URL,
 									params={"access_token": self.access_token, "client_id": self.client_id})
 			mahasiswa_list = response.json()["results"]
