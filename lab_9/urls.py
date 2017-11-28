@@ -18,7 +18,7 @@ urlpatterns = [
 
     #add/delete drones
     url(r'^add_session_drones/(?P<id>\d+)/$', add_session_drones, name='add_session_drones'),
-    url(r'^del_session_drones/(?P<id>\d+)/$', del_session_drones, name=''),
+    url(r'^del_session_drones/(?P<id>\d+)/$', del_session_drones, name='del_session_drones'),
     url(r'^clear_session_drones/$', clear_session_drones, name='clear_session_drones'),
 
     # cookie
