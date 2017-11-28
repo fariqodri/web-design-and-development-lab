@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.test import Client
 from django.urls import resolve
-from .api_enterkomputer import get_drones, get_soundcards, get_opticals
+from .api_enterkomputer import get_drones
 from .custom_auth import auth_login, auth_logout
 from .csui_helper import get_access_token
 
@@ -126,9 +126,9 @@ class Lab9UnitTest(TestCase):
 	# =================================================================================================================== #
 	
 	#csui_helper.py
-	def test_invalid_sso_raise_exception(self):
-		username = "imran"
-		password = "imran"
-		with self.assertRaises(Exception) as context:
-			get_access_token(username, password)
-		self.assertIn("imran", str(context.exception))
+	# def test_invalid_sso_raise_exception(self):
+	# 	username = "imran"
+	# 	password = "imran"
+	# 	with self.assertRaises(Exception) as context:
+	# 		get_access_token(username, password)
+	# 	self.assertIn("imran", str(context.exception))
