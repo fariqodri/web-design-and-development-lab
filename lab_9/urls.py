@@ -4,7 +4,7 @@ from .views import index, profile, \
     cookie_login, cookie_auth_login, cookie_profile, cookie_clear
 
 # sol to challenge
-from .views import add_session_item, del_session_item, clear_session_item
+#from .views import add_session_item, del_session_item, clear_session_item
 # /sol
 from .custom_auth import auth_login, auth_logout
 
