@@ -1,0 +1,27 @@
+{% extends "lab_10/layout/base.html" %}
+
+{% block content %}
+<!-- template source: https://ganool.se/ -->
+<section id="later" class="main-watch-later">
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="col-lg-1 col-md-1"></div>
+		<div class="col-lg-10 col-md-10">
+		    <div class="row watch-later-list">
+		    {% for movie in watch_later_movies %}
+			    <div class="movimgbox col-lg-2 col-md-2 col-sm-4 col-xs-6">
+			    	<a class="ml-mask" href="{% url 'lab-10:movie_detail' movie.imdbid %}">
+			    		<img class="img-responsive homethumb" src="{{ movie.poster }}">
+			    		<span class="mli-info">
+			    			<div class="moviename"> {{ movie.title }} </div>
+			    		</span>
+			    	</a>
+			    </div>
+			{% endfor %}
+		    </div>
+		</div>
+		<div class="col-lg-1 col-md-1"></div>
+	</div>
+</div>
+</section>
+{% endblock %}

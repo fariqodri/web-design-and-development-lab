@@ -1,0 +1,112 @@
+body {
+    background: #1A1A1A;
+}
+.main-movie-detail {
+    margin-bottom: 20px;
+}
+.movie-title, .movie-detail{
+    color: white;
+}
+.movie-detail hr {
+    margin-top: 2px;
+}
+.movie-detail h4:first-child {
+    margin-top: 0;
+}
+.movie-detail h4 {
+    margin-top: 20px;
+}
+.movie-detail .box {
+    margin-top: 20px;
+}
+.main-watch-later {
+    margin-top: 20px;
+}
+/*styling source https://www.w3schools.com/css/css_align.asp*/
+.movie-poster img {
+    display: block;
+    margin: auto 50px auto auto;
+}
+
+/*styling source: http://webredox.net/demo/wp/movieme/light/*/
+td {
+    padding: 0 10px 2px 0;
+}
+/*styling source: https://ganool.se/*/
+img.homethumb{ 
+	width: 100% !important;
+    height: auto !important;
+    min-height: 100% !important;
+    background-position: 50% 25%;
+    background-size: cover; 
+}
+.watch-later-list .movimgbox {
+    height: 230px;
+    background: rgba(26,26,26,1);
+
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+}
+.watch-later-list .movimgbox .ml-mask:after, .watch-later-list .movimgbox .ml-mask:before {
+    transition: all 0.2s ease 0s;
+    -webkit-transition: all 0.2s ease 0s;
+    z-index: 4;
+}
+.watch-later-list .movimgbox .ml-mask:before {
+    content: "";
+    background: rgba(0,0,0,0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+.watch-later-list .movimgbox .ml-mask:hover img{
+    opacity: 0.4!important; 
+}
+.watch-later-list .movimgbox .mli-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    background: url(https://ganool.se/wp-content/themes/newganool/images/mask-title.png) top repeat-x;
+    z-index: 5;
+}
+.watch-later-list .movimgbox .ml-mask:after {
+    content: "";
+    width: 100px;
+    height: 65px;
+    background-image: rgba(0,0,0,0.6);
+    background-position: 50% 25%;
+    background-size: cover;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -30px;
+    margin-left: -50px;
+}
+.watch-later-list .movimgbox .ml-mask:hover:after { 
+    opacity:1 !important; 
+}
+.footer { 
+    margin-top: 15%;
+    /*padding: 15px 10px 10px 20px;*/
+    color: #ddd !important;
+    border-top:1px solid #ddd;
+    bottom: 0;
+}
+@media only screen and (max-width: 768px) {
+    .movie-poster {
+        margin-bottom: 30px;
+    }
+    .movie-detail .box {
+        text-align: center;
+    }
+}
