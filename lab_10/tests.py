@@ -10,6 +10,14 @@ environ.Env.read_env('.env')
 
 # Create your tests here.
 class Lab10UnitTest(TestCase):
+    def test_logout(self):
+		response = self.client.post('/lab-9/custom_auth/login/', {'username': self.username, 'password': self.password})
+		self.assertEqual(response.status_code, 302)
+		response = self.client.post('/lab-9/custom_auth/logout/')
+		html_response = self.client.get('/lab-9/').content.decode('utf-8')
+		self.assertEqual(response.status_code, 302)
+		self.assertIn("Anda berhasil logout. Semua session Anda sudah dihapus", html_response)
+        
 	def setUp(self):
 		self.username = env("SSO_USERNAME")
 		self.password = env("SSO_PASSWORD")
@@ -144,11 +152,3 @@ class Lab10UnitTest(TestCase):
 		#not found
 		response = Client().get('/lab-10/api/movie/zabolaza/-/')
 		self.assertEqual(response.status_code, 200)
-    
-    def test_logout(self):
-		response = self.client.post('/lab-9/custom_auth/login/', {'username': self.username, 'password': self.password})
-		self.assertEqual(response.status_code, 302)
-		response = self.client.post('/lab-9/custom_auth/logout/')
-		html_response = self.client.get('/lab-9/').content.decode('utf-8')
-		self.assertEqual(response.status_code, 302)
-		self.assertIn("Anda berhasil logout. Semua session Anda sudah dihapus", html_response)
