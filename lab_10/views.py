@@ -18,8 +18,10 @@ response = {}
 def index(request):
     # print ("#==> masuk index")
     if 'user_login' in request.session:
+        response['login'] = True
         return HttpResponseRedirect(reverse('lab-10:dashboard'))
     else:
+        response['login'] = False
         response['author'] = get_data_user(request, 'user_login')
         html = 'lab_10/login.html'
         return render(request, html, response)
@@ -45,8 +47,12 @@ def dashboard(request):
 
 ### MOVIE : LIST and DETAIL
 def movie_list(request):
+    if 'user_login' in request.session.keys():
+        response['login'] = True
+    else:
+        response['login'] = False
     judul, tahun = get_parameter_request(request)
-    urlDataTables = "/lab-10/api/movie/" + judul + "/" + tahun
+    urlDataTables = "/lab-10/api/movie/" + judul + "/" + tahun + "/"
     jsonUrlDT = json.dumps(urlDataTables)
     response['jsonUrlDT'] = jsonUrlDT
     response['judul'] = judul
@@ -61,8 +67,10 @@ def movie_detail(request, id):
     print ("MOVIE DETAIL = ", id)
     response['id'] = id
     if get_data_user(request, 'user_login'):
+        response['login'] = True
         is_added = check_movie_in_database(request, id)
     else:
+        response['login'] = False
         is_added = check_movie_in_session(request, id)
 
     response['added'] = is_added
@@ -97,8 +105,10 @@ def list_watch_later(request):
     get_data_session(request)
     moviesku = []
     if get_data_user(request, 'user_login'):
+        response['login'] = True
         moviesku = get_my_movies_from_database(request)
     else:
+        response['login'] = False
         moviesku = get_my_movies_from_session(request)
 
     watch_later_movies = get_list_movie_from_api(moviesku)
@@ -129,4 +139,3 @@ def api_search_movie(request, judul, tahun):
     dataJson = json.dumps({"dataku":items})
     mimetype = 'application/json'
     return HttpResponse(dataJson, mimetype)
-
